@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PUBG Battle Arena | E-Sports Club</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/games.css">
+</head>
+
+<body class="pubg-page">
+
+    <nav class="navbar">
+        <ul>
+            <li class="icon box"><a href="rocketleague.html">
+                    <img class="icon norm" src="icons/home.png" alt="Home">
+                    <img class="icon hover" src="icons/home_hover.png" alt="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+
+            <li class="icon box list"><a href="rocketleague.html">
+                    <img class="icon norm" src="icons/game.png" alt="Games">
+                    <img class="icon hover" src="icons/game_hover.png" alt="Games">
+                    <span>Games</span>
+                </a>
+                <ul class="listgames">
+                    <li><a href="rocketleague.html"><img class="icon norm" src="icons/car.png" alt="Rocket League"><img class="icon hover" src="icons/car_hover.png" alt="Rocket League"><span>Rocket League</span></a></li>
+                    <li><a href="valorant.html"><img class="icon norm" src="icons/valo.png" alt="Valorant"><img class="icon hover" src="icons/valo_hover.png" alt="Valorant"><span>Valorant</span></a></li>
+                    <li><a href="mlbb.html"><img class="icon norm" src="icons/moba.png" alt="Mobile Legends"><img class="icon hover" src="icons/moba_hover.png" alt="Mobile Legends"><span>Mobile Legends</span></a></li>
+                    <li><a href="apex.html"><img class="icon norm" src="icons/apex.png" alt="Apex Legends"><img class="icon hover" src="icons/apex_hover.png" alt="Apex Legends"><span>Apex Legends</span></a></li>
+                    <li><a href="pubg.html"><img class="icon norm" src="icons/pubg.png" alt="PUBG"><img class="icon hover" src="icons/pubg_hover.png" alt="PUBG"><span>PUBG</span></a></li>
+                    <li><a href="cs2.html"><img class="icon norm" src="icons/csgo.png" alt="Counter Strike 2"><img class="icon hover" src="icons/csgo_hover.png" alt="Counter Strike 2"><span>Counter Strike 2</span></a></li>
+                </ul>
+            </li>
+
+            <li class="icon box list"><a href="schedule.html">
+                    <img class="icon norm" src="icons/schedule.png" alt="Calendar">
+                    <img class="icon hover" src="icons/schedule_hover.png" alt="Calendar">
+                    <span>Schedules</span>
+                </a>
+                <ul class="listgames">
+                    <li><a href="rocketleague.html"><img class="icon norm" src="icons/car.png" alt="Rocket League"><img class="icon hover" src="icons/car_hover.png" alt="Rocket League"><span>Rocket League</span></a></li>
+                    <li><a href="valorant.html"><img class="icon norm" src="icons/valo.png" alt="Valorant"><img class="icon hover" src="icons/valo_hover.png" alt="Valorant"><span>Valorant</span></a></li>
+                    <li><a href="mlbb.html"><img class="icon norm" src="icons/moba.png" alt="Mobile Legends"><img class="icon hover" src="icons/moba_hover.png" alt="Mobile Legends"><span>Mobile Legends</span></a></li>
+                    <li><a href="apex.html"><img class="icon norm" src="icons/apex.png" alt="Apex Legends"><img class="icon hover" src="icons/apex_hover.png" alt="Apex Legends"><span>Apex Legends</span></a></li>
+                    <li><a href="pubg.html"><img class="icon norm" src="icons/pubg.png" alt="PUBG"><img class="icon hover" src="icons/pubg_hover.png" alt="PUBG"><span>PUBG</span></a></li>
+                    <li><a href="cs2.html"><img class="icon norm" src="icons/csgo.png" alt="Counter Strike 2"><img class="icon hover" src="icons/csgo_hover.png" alt="Counter Strike 2"><span>Counter Strike 2</span></a></li>
+                </ul>
+            </li>
+
+            <li class="icon box list"><a href="rankings.html">
+                    <img class="icon norm" src="icons/trophy.png" alt="Rankings">
+                    <img class="icon hover" src="icons/trophy_hover.png" alt="Rankings">
+                    <span>Rankings</span>
+                </a>
+                <ul class="listgames">
+                    <li><a href="rankings.html"><img class="icon norm" src="icons/car.png" alt="Rocket League"><img class="icon hover" src="icons/car_hover.png" alt="Rocket League"><span>Rocket League</span></a></li>
+                    <li><a href="rankings.html"><img class="icon norm" src="icons/valo.png" alt="Valorant"><img class="icon hover" src="icons/valo_hover.png" alt="Valorant"><span>Valorant</span></a></li>
+                    <li><a href="rankings.html"><img class="icon norm" src="icons/moba.png" alt="Mobile Legends"><img class="icon hover" src="icons/moba_hover.png" alt="Mobile Legends"><span>Mobile Legends</span></a></li>
+                    <li><a href="rankings.html"><img class="icon norm" src="icons/apex.png" alt="Apex Legends"><img class="icon hover" src="icons/apex_hover.png" alt="Apex Legends"><span>Apex Legends</span></a></li>
+                    <li><a href="rankings.html"><img class="icon norm" src="icons/pubg.png" alt="PUBG"><img class="icon hover" src="icons/pubg_hover.png" alt="PUBG"><span>PUBG</span></a></li>
+                    <li><a href="rankings.html"><img class="icon norm" src="icons/csgo.png" alt="Counter Strike 2"><img class="icon hover" src="icons/csgo_hover.png" alt="Counter Strike 2"><span>Counter Strike 2</span></a></li>
+                </ul>
+            </li>
+
+            <li class="icon box op"><a href="profile.html"><img class="icon norm" src="icons/guy.png" alt="Profile"><img class="icon hover" src="icons/guy_hover.png" alt="Profile"><span>Profile</span></a></li>
+            <li class="icon box op"><a href="news.html"><img class="icon norm" src="icons/news.png" alt="News"><img class="icon hover" src="icons/news_hover.png" alt="News"><span>News</span></a></li>
+            <li class="icon box op"><a href="contact.html"><img class="icon norm" src="icons/contact.png" alt="Contact us"><img class="icon hover" src="icons/contact_hover.png" alt="Contact us"><span>Contact Us</span></a></li>
+
+            <li class="icon box more list"><a href="#">
+                    <span class="more-dots" aria-hidden="true">•••</span>
+                    <span>More</span>
+                </a>
+                <ul class="listgames">
+                    <li><a href="profile.html"><img class="icon norm" src="icons/guy_hover.png" alt="Profile"><img class="icon hover" src="icons/guy.png" alt="Profile"><span>Profile</span></a></li>
+                    <li><a href="news.html"><img class="icon norm" src="icons/news_hover.png" alt="News"><img class="icon hover" src="icons/news.png" alt="News"><span>News</span></a></li>
+                    <li><a href="contact.html"><img class="icon norm" src="icons/contact_hover.png" alt="Contact us"><img class="icon hover" src="icons/contact.png" alt="Contact us"><span>Contact Us</span></a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <section class="game-hero pubg-hero">
+
+        <video class="hero-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+            <source src="video/pubg.mp4" type="video/mp4">
+        </video>
+
+        <div class="hero-overlay"></div>
+
+        <div class="container hero-container">
+            <div class="hero-content">
+
+                <span class="hero-tag">E-SPORTS CLUB PRESENTS</span>
+
+                <h1>
+                    PUBG
+                    <span>BATTLE ARENA</span>
+                </h1>
+
+                <p class="hero-subtitle">Survive. Outplay. Conquer.</p>
+
+                <p class="hero-description">
+                    A competitive PUBG tournament where eight campus squads battle across intense survival matches,
+                    combining positioning, teamwork and precision to become the PUBG Battle Arena champion.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#schedule" class="hero-btn">View Schedule</a>
+                    <a href="#information" class="hero-btn outline">Tournament Info</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="quick-info">
+        <div class="container">
+            <div class="quick-grid">
+
+                <div class="quick-item">
+                    <i class="bi bi-calendar-event"></i>
+                    <div>
+                        <small>DATE</small>
+                        <strong>5–7 SEPTEMBER 2026</strong>
+                    </div>
+                </div>
+
+                <div class="quick-item">
+                    <i class="bi bi-clock"></i>
+                    <div>
+                        <small>TIME</small>
+                        <strong>1:00 PM – 9:00 PM</strong>
+                    </div>
+                </div>
+
+                <div class="quick-item">
+                    <i class="bi bi-geo-alt"></i>
+                    <div>
+                        <small>VENUE</small>
+                        <strong>UTAR KAMPAR</strong>
+                    </div>
+                </div>
+
+                <div class="quick-item prize">
+                    <i class="bi bi-trophy"></i>
+                    <div>
+                        <small>PRIZE POOL</small>
+                        <strong>RM 5,000</strong>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="container content-section" id="information">
+
+        <div class="section-heading">
+            <span>ABOUT THE EVENT</span>
+            <h2>PUBG Battle Arena</h2>
+        </div>
+
+        <div class="about-grid">
+
+            <div class="about-card">
+                <div class="card-icon">
+                    <i class="bi bi-controller"></i>
+                </div>
+
+                <h3>About</h3>
+
+                <p>
+                    PUBG Battle Arena is a competitive battle royale tournament for student squads.
+                    Eight squads compete across three competition days using teamwork, positioning and tactical decision-making.
+                </p>
+            </div>
+
+            <div class="about-card">
+                <div class="card-icon">
+                    <i class="bi bi-bullseye"></i>
+                </div>
+
+                <h3>Purpose</h3>
+
+                <p>
+                    The tournament promotes teamwork, communication, map awareness and strategic decision-making
+                    while giving students an opportunity to experience an organised e-sports competition.
+                </p>
+            </div>
+
+            <div class="about-card">
+                <div class="card-icon">
+                    <i class="bi bi-diagram-3"></i>
+                </div>
+
+                <h3>Format</h3>
+
+                <p>
+                    Eight squads compete through a three-day elimination format. Quarter Finals and Semi Finals
+                    use Best of 3 rounds, while the Grand Final uses Best of 5 to decide the champion.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="schedule-area" id="schedule">
+        <div class="container">
+
+            <div class="section-heading center">
+                <span>TOURNAMENT SCHEDULE</span>
+                <h2>PUBG Battle Arena 2026</h2>
+                <p>8 Squads • Elimination Format • 3 Competition Days</p>
+            </div>
+
+            <div class="schedule-summary">
+                <span><i class="bi bi-people-fill"></i> 8 Squads</span>
+                <span><i class="bi bi-controller"></i> 7 Matches</span>
+                <span><i class="bi bi-calendar3"></i> 3 Days</span>
+            </div>
+
+            <div class="schedule-day">
+
+                <div class="schedule-date">
+                    <span>DAY 1</span>
+                    <h3>5 September 2026</h3>
+                    <p>Quarter Finals</p>
+                </div>
+
+                <div class="match-list">
+
+                    <div class="match-card">
+                        <div class="match-time">11:00 AM</div>
+
+                        <div class="match-info">
+                            <span class="match-stage">QUARTER FINAL 01</span>
+
+                            <div class="teams">
+                                <strong>Crimson Squad</strong>
+                                <span class="vs">VS</span>
+                                <strong>Falcon Unit</strong>
+                            </div>
+
+                            <p>Best of 3</p>
+                        </div>
+                    </div>
+
+                    <div class="match-card">
+                        <div class="match-time">12:30 PM</div>
+
+                        <div class="match-info">
+                            <span class="match-stage">QUARTER FINAL 02</span>
+
+                            <div class="teams">
+                                <strong>Nova Raiders</strong>
+                                <span class="vs">VS</span>
+                                <strong>Iron Vipers</strong>
+                            </div>
+
+                            <p>Best of 3</p>
+                        </div>
+                    </div>
+
+                    <div class="match-card">
+                        <div class="match-time">2:00 PM</div>
+
+                        <div class="match-info">
+                            <span class="match-stage">QUARTER FINAL 03</span>
+
+                            <div class="teams">
+                                <strong>Titan Force</strong>
+                                <span class="vs">VS</span>
+                                <strong>Shadow Wolves</strong>
+                            </div>
+
+                            <p>Best of 3</p>
+                        </div>
+                    </div>
+
+                    <div class="match-card">
+                        <div class="match-time">3:30 PM</div>
+
+                        <div class="match-info">
+                            <span class="match-stage">QUARTER FINAL 04</span>
+
+                            <div class="teams">
+                                <strong>Sky Hunters</strong>
+                                <span class="vs">VS</span>
+                                <strong>Red Reapers</strong>
+                            </div>
+
+                            <p>Best of 3</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="schedule-day">
+
+                <div class="schedule-date">
+                    <span>DAY 2</span>
+                    <h3>6 September 2026</h3>
+                    <p>Semi Finals</p>
+                </div>
+
+                <div class="match-list">
+
+                    <div class="match-card semifinal-card">
+                        <div class="match-time">2:00 PM</div>
+
+                        <div class="match-info">
+                            <span class="match-stage">SEMI FINAL 01</span>
+
+                            <div class="teams">
+                                <strong>Winner QF1</strong>
+                                <span class="vs">VS</span>
+                                <strong>Winner QF2</strong>
+                            </div>
+
+                            <p>Best of 3</p>
+                        </div>
+                    </div>
+
+                    <div class="match-card semifinal-card">
+                        <div class="match-time">4:00 PM</div>
+
+                        <div class="match-info">
+                            <span class="match-stage">SEMI FINAL 02</span>
+
+                            <div class="teams">
+                                <strong>Winner QF3</strong>
+                                <span class="vs">VS</span>
+                                <strong>Winner QF4</strong>
+                            </div>
+
+                            <p>Best of 3</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="schedule-day">
+
+                <div class="schedule-date">
+                    <span>DAY 3</span>
+                    <h3>7 September 2026</h3>
+                    <p>Grand Final</p>
+                </div>
+
+                <div class="match-list">
+
+                    <div class="match-card final-card">
+                        <div class="match-time">7:00 PM</div>
+
+                        <div class="match-info">
+                            <span class="match-stage">GRAND FINAL</span>
+
+                            <div class="teams final-teams">
+                                <strong>Winner SF1</strong>
+                                <span class="vs">VS</span>
+                                <strong>Winner SF2</strong>
+                            </div>
+
+                            <p>Best of 5</p>
+
+                            <div class="championship-label">
+                                <i class="bi bi-trophy-fill"></i>
+                                PUBG BATTLE ARENA 2026
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="container prize-section">
+        <div class="prize-box">
+
+            <div>
+                <span>TOTAL PRIZE POOL</span>
+                <h2>RM 5,000</h2>
+                <p>Survive the battlefield, win the championship and take home the prize.</p>
+            </div>
+
+            <i class="bi bi-trophy-fill"></i>
+
+        </div>
+    </section>
+
+    <section class="container previous-section">
+
+        <div class="section-heading">
+            <span>LOOKING BACK</span>
+            <h2>Previous Events</h2>
+            <p>See how previous PUBG campus tournaments progressed from the quarter finals to the championship.</p>
+        </div>
+
+        <div class="previous-grid" style="grid-template-columns: 1fr;">
+
+            <article class="previous-card previous-bracket-card">
+
+                <div class="previous-event-header">
+                    <div class="previous-title">
+                        <span>2025</span>
+                        <h3>PUBG Campus Championship</h3>
+                    </div>
+
+                    <p class="previous-date">
+                        <i class="bi bi-calendar-event"></i>
+                        12 September 2025
+                    </p>
+                </div>
+
+                <div class="previous-results">
+                    <div>
+                        <small>CHAMPION</small>
+                        <strong>Crimson Squad</strong>
+                    </div>
+
+                    <div>
+                        <small>RUNNER-UP</small>
+                        <strong>Iron Vipers</strong>
+                    </div>
+
+                    <div>
+                        <small>PRIZE POOL</small>
+                        <strong>RM 4,000</strong>
+                    </div>
+
+                    <div>
+                        <small>FORMAT</small>
+                        <strong>8 Squads</strong>
+                    </div>
+                </div>
+
+                <div class="history-bracket-shell">
+
+                    <div class="history-bracket" aria-label="2025 PUBG Campus Championship tournament bracket">
+
+                        <div class="bracket-round bracket-quarter bracket-left">
+                            <h4 class="bracket-round-title">Quarter Finals</h4>
+
+                            <div class="bracket-round-body">
+
+                                <div class="bracket-match">
+                                    <div class="bracket-team winner">
+                                        <span>Crimson Squad</span>
+                                        <strong class="bracket-score">2</strong>
+                                    </div>
+                                    <div class="bracket-team">
+                                        <span>Nova Raiders</span>
+                                        <strong class="bracket-score">0</strong>
+                                    </div>
+                                </div>
+
+                                <div class="bracket-match">
+                                    <div class="bracket-team winner">
+                                        <span>Titan Force</span>
+                                        <strong class="bracket-score">2</strong>
+                                    </div>
+                                    <div class="bracket-team">
+                                        <span>Shadow Wolves</span>
+                                        <strong class="bracket-score">1</strong>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="bracket-round bracket-semi bracket-left">
+                            <h4 class="bracket-round-title">Semi Final</h4>
+
+                            <div class="bracket-round-body">
+                                <div class="bracket-match">
+                                    <div class="bracket-team winner">
+                                        <span>Crimson Squad</span>
+                                        <strong class="bracket-score">2</strong>
+                                    </div>
+                                    <div class="bracket-team">
+                                        <span>Titan Force</span>
+                                        <strong class="bracket-score">1</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bracket-round bracket-final">
+                            <h4 class="bracket-round-title">Grand Final</h4>
+
+                            <div class="bracket-round-body">
+                                <div class="bracket-final-stack">
+
+                                    <div class="bracket-match bracket-final-match">
+                                        <div class="bracket-team winner">
+                                            <span>Crimson Squad</span>
+                                            <strong class="bracket-score">3</strong>
+                                        </div>
+                                        <div class="bracket-team">
+                                            <span>Iron Vipers</span>
+                                            <strong class="bracket-score">2</strong>
+                                        </div>
+                                    </div>
+
+                                    <div class="bracket-champion">
+                                        <i class="bi bi-trophy-fill"></i>
+                                        <small>CHAMPION</small>
+                                        <strong>Crimson Squad</strong>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bracket-round bracket-semi bracket-right">
+                            <h4 class="bracket-round-title">Semi Final</h4>
+
+                            <div class="bracket-round-body">
+                                <div class="bracket-match">
+                                    <div class="bracket-team winner">
+                                        <strong class="bracket-score">2</strong>
+                                        <span>Iron Vipers</span>
+                                    </div>
+                                    <div class="bracket-team">
+                                        <strong class="bracket-score">0</strong>
+                                        <span>Red Reapers</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bracket-round bracket-quarter bracket-right">
+                            <h4 class="bracket-round-title">Quarter Finals</h4>
+
+                            <div class="bracket-round-body">
+
+                                <div class="bracket-match">
+                                    <div class="bracket-team winner">
+                                        <strong class="bracket-score">2</strong>
+                                        <span>Iron Vipers</span>
+                                    </div>
+                                    <div class="bracket-team">
+                                        <strong class="bracket-score">1</strong>
+                                        <span>Sky Hunters</span>
+                                    </div>
+                                </div>
+
+                                <div class="bracket-match">
+                                    <div class="bracket-team winner">
+                                        <strong class="bracket-score">2</strong>
+                                        <span>Red Reapers</span>
+                                    </div>
+                                    <div class="bracket-team">
+                                        <strong class="bracket-score">0</strong>
+                                        <span>Night Raiders</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </article>
+
+            <article class="previous-card previous-bracket-card">
+
+                <div class="previous-event-header">
+                    <div class="previous-title">
+                        <span>2024</span>
+                        <h3>PUBG Inter-Campus Cup</h3>
+                    </div>
+
+                    <p class="previous-date">
+                        <i class="bi bi-calendar-event"></i>
+                        19 October 2024
+                    </p>
+                </div>
+
+                <div class="previous-results">
+                    <div>
+                        <small>CHAMPION</small>
+                        <strong>Nova Raiders</strong>
+                    </div>
+
+                    <div>
+                        <small>RUNNER-UP</small>
+                        <strong>Falcon Unit</strong>
+                    </div>
+
+                    <div>
+                        <small>PRIZE POOL</small>
+                        <strong>RM 3,000</strong>
+                    </div>
+
+                    <div>
+                        <small>FORMAT</small>
+                        <strong>8 Squads</strong>
+                    </div>
+                </div>
+
+                <div class="history-bracket-shell">
+
+                    <div class="history-bracket" aria-label="2024 PUBG Inter-Campus Cup tournament bracket">
+
+                        <div class="bracket-round bracket-quarter bracket-left">
+                            <h4 class="bracket-round-title">Quarter Finals</h4>
+
+                            <div class="bracket-round-body">
+
+                                <div class="bracket-match">
+                                    <div class="bracket-team winner">
+                                        <span>Nova Raiders</span>
+                                        <strong class="bracket-score">2</strong>
+                                    </div>
+                                    <div class="bracket-team">
+                                        <span>Blue Storm</span>
+                                        <strong class="bracket-score">0</strong>
+                                    </div>
+                                </div>
+
+                                <div class="bracket-match">
+                                    <div class="bracket-team winner">
+                                        <span>Iron Vipers</span>
+                                        <strong class="bracket-score">2</strong>
+                                    </div>
+                                    <div class="bracket-team">
+                                        <span>Iron Wolves</span>
+                                        <strong class="bracket-score">1</strong>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="bracket-round bracket-semi bracket-left">
+                            <h4 class="bracket-round-title">Semi Final</h4>
+
+                            <div class="bracket-round-body">
+                                <div class="bracket-match">
+                                    <div class="bracket-team winner">
+                                        <span>Nova Raiders</span>
+                                        <strong class="bracket-score">2</strong>
+                                    </div>
+                                    <div class="bracket-team">
+                                        <span>Iron Vipers</span>
+                                        <strong class="bracket-score">0</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bracket-round bracket-final">
+                            <h4 class="bracket-round-title">Grand Final</h4>
+
+                            <div class="bracket-round-body">
+                                <div class="bracket-final-stack">
+
+                                    <div class="bracket-match bracket-final-match">
+                                        <div class="bracket-team winner">
+                                            <span>Nova Raiders</span>
+                                            <strong class="bracket-score">3</strong>
+                                        </div>
+                                        <div class="bracket-team">
+                                            <span>Falcon Unit</span>
+                                            <strong class="bracket-score">1</strong>
+                                        </div>
+                                    </div>
+
+                                    <div class="bracket-champion">
+                                        <i class="bi bi-trophy-fill"></i>
+                                        <small>CHAMPION</small>
+                                        <strong>Nova Raiders</strong>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bracket-round bracket-semi bracket-right">
+                            <h4 class="bracket-round-title">Semi Final</h4>
+
+                            <div class="bracket-round-body">
+                                <div class="bracket-match">
+                                    <div class="bracket-team winner">
+                                        <strong class="bracket-score">2</strong>
+                                        <span>Falcon Unit</span>
+                                    </div>
+                                    <div class="bracket-team">
+                                        <strong class="bracket-score">1</strong>
+                                        <span>Shadow Wolves</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bracket-round bracket-quarter bracket-right">
+                            <h4 class="bracket-round-title">Quarter Finals</h4>
+
+                            <div class="bracket-round-body">
+
+                                <div class="bracket-match">
+                                    <div class="bracket-team winner">
+                                        <strong class="bracket-score">2</strong>
+                                        <span>Falcon Unit</span>
+                                    </div>
+                                    <div class="bracket-team">
+                                        <strong class="bracket-score">0</strong>
+                                        <span>Red Knights</span>
+                                    </div>
+                                </div>
+
+                                <div class="bracket-match">
+                                    <div class="bracket-team winner">
+                                        <strong class="bracket-score">2</strong>
+                                        <span>Shadow Wolves</span>
+                                    </div>
+                                    <div class="bracket-team">
+                                        <strong class="bracket-score">1</strong>
+                                        <span>Sky Hunters</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </article>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Gaming Hub. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/anchor.js"></script>
+</body>
+
+</html>
