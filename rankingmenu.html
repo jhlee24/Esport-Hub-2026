@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rankings</title>
+
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/rankingmenu.css">
+
+    <style>
+        :root {
+            --r: 31;
+            --g: 41;
+            --b: 55;
+            --a: 0.9;
+        }
+
+        body {
+            background: linear-gradient(135deg,
+                    #111827,
+                    #1f2937,
+                    #374151);
+
+            min-height: 100vh;
+            color: white;
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+    <script src="js/nav.js"></script>
+
+    <div class="ranking-container">
+
+        <h1> Tournament Rankings</h1>
+        <p class="click-text">👇Click to view ranking</p>
+
+
+        <div class="game-list">
+
+            <div class="ranking-game-card">
+                <a href="ranking.html" class="ranking-game-card" onclick="selectGame('Rocket League')">
+
+                    <img src="pics/rocketleague.jpg" class="ranking-game-image">
+
+                    <h3>Rocket League</h3>
+
+                </a>
+            </div>
+
+
+            <div class="ranking-game-card">
+                <a href="ranking.html" class="ranking-game-card" onclick="selectGame('Valorant')">
+
+                    <img src="pics/valorant.jpg" class="ranking-game-image">
+
+                    <h3>Valorant</h3>
+
+                </a>
+            </div>
+
+
+            <div class="ranking-game-card">
+                <a href="ranking.html" class="ranking-game-card" onclick="selectGame('Mobile Legends')">
+
+                    <img src="pics/mobilelegends.jpg" class="ranking-game-image">
+
+                    <h3>Mobile Legends</h3>
+
+                </a>
+            </div>
+
+
+            <div class="ranking-game-card">
+                <a href="ranking.html" class="ranking-game-card" onclick="selectGame('Apex Legends')">
+
+                    <img src="pics/apex.jpg" class="ranking-game-image">
+
+                    <h3>Apex Legends</h3>
+
+                </a>
+            </div>
+
+
+            <div class="ranking-game-card">
+                <a href="ranking.html" class="ranking-game-card" onclick="selectGame('PUBG')">
+
+                    <img src="pics/PUBG.jpg" class="ranking-game-image">
+
+                    <h3>PUBG</h3>
+
+                </a>
+            </div>
+
+
+            <div class="ranking-game-card">
+                <a href="ranking.html" class="ranking-game-card" onclick="selectGame('Counter Strike 2')">
+
+                    <img src="pics/cs2.jpeg" class="ranking-game-image">
+
+                    <h3>Counter Strike 2</h3>
+
+                </a>
+            </div>
+
+<script src="js/rankingmenu.js"></script>
+</body>
+
+</html>

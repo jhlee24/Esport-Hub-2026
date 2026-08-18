@@ -14,9 +14,10 @@
     border-radius: 5px;
     outline: 5px solid white;
     outline-offset: 1px;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, .9), rgb(var(--r), var(--g), var(--b), var(--a)));
+    background: linear-gradient(to bottom, rgba(255, 255, 255, .9), rgba(var(--r), var(--g), var(--b), var(--a)));
     /*use custom backgrounds, from your page*/
     user-select: none;
+    
     
 }
 
@@ -156,4 +157,77 @@
 
 #list:hover .listgames {
     display: block;
+}
+
+.site-footer {
+    width: 100%;
+    margin-top: 40px;
+    padding: 20px;
+    color: #e2e8f0;
+    background: rgba(5, 8, 18, 0.92);
+    border-top: 1px solid rgba(96, 165, 250, 0.4);
+    text-align: center;
+    font-size: 14px;
+}
+
+.site-cookie-banner {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    max-width: 620px;
+    padding: 18px 20px;
+    color: #ffffff;
+    background: rgba(15, 23, 42, 0.96);
+    border: 1px solid rgba(96, 165, 250, 0.65);
+    border-radius: 12px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+}
+
+.site-cookie-banner strong {
+    display: block;
+    margin-bottom: 4px;
+    color: #bfdbfe;
+}
+
+.site-cookie-banner p {
+    margin: 0;
+    color: #cbd5e1;
+    font-size: 14px;
+}
+
+.site-cookie-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.site-cookie-buttons button {
+    padding: 8px 14px;
+    color: #ffffff;
+    background: #334155;
+    border: 1px solid #64748b;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.site-cookie-buttons button:first-child {
+    background: #2563eb;
+    border-color: #2563eb;
+}
+
+@media (max-width: 650px) {
+    .site-cookie-banner {
+        right: 12px;
+        bottom: 12px;
+        left: 12px;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .site-cookie-buttons button {
+        flex: 1;
+    }
 }

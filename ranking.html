@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Rankings</title>
+    <link rel="stylesheet" href="css/nav.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            width: 100%;
+            max-width: 100%;
+            background-color: #222;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+
+            background-image: var(--game-background);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            filter: blur(20px);
+            transform: scale(1.1);
+
+            z-index: -2;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+
+            background-image: var(--game-background);
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            z-index: -1;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                background-attachment: scroll;
+                background-position: center center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            body {
+                background-position: center top;
+            }
+        }
+
+
+
+        h2 {
+            font-weight: bold;
+
+        }
+
+
+        .podium {
+            align-items: end;
+            margin-top: 40px;
+        }
+
+
+        /* Ranking Card */
+
+        .rank-card {
+
+            border-radius: 15px;
+
+            text-align: center;
+
+            padding: 15px;
+
+            transition: .3s;
+
+            overflow: visible;
+
+
+        }
+
+        .rank-card h4 {
+            font-size: 22px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            margin-bottom: 5px;
+            color: #111827;
+            font-weight: bold;
+        }
+
+
+
+        /* 1st */
+        .first {
+            background: #FFD700;
+            color: black;
+            min-height: 360px;
+        }
+
+
+        .second {
+            background: #C0C0C0;
+            color: black;
+            min-height: 320px;
+        }
+
+
+        .third {
+            background: #CD7F32;
+            color: black;
+            min-height: 280px;
+        }
+
+
+        .team-logo {
+
+            width: 90px;
+            height: 90px;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+
+            border: 3px solid white;
+
+            margin: 0 auto 10px;
+
+        }
+
+        .modal-image {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+
+
+        .rank {
+
+            font-size: 45px;
+
+        }
+
+
+        .prize {
+
+            color: #374151;
+            font-size: 16px;
+            font-weight: bold;
+
+        }
+
+        .ranking-container {
+            width: 100%;
+            max-width: 1140px;
+            margin: 40px auto;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+
+        .navbar {
+            background: linear-gradient(90deg, #5b7fa3, #7896b5);
+        }
+
+        .waiting-message {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 50px 30px;
+            margin: 40px auto;
+            max-width: 700px;
+        }
+
+        .waiting-message h3 {
+            color: #111827;
+            font-weight: bold;
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .waiting-message p {
+            color: #374151;
+            font-size: 18px;
+        }
+
+        .tournament-title {
+            font-family: "Black Ops One", cursive;
+        }
+
+        .tournament-box {
+            background: rgba(255, 255, 255, 0.65);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 40px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+
+
+
+        @media (max-width: 576px) {
+            .ranking-container {
+                width: 100%;
+                margin: 20px 0;
+                padding: 15px;
+                border-radius: 0;
+                box-sizing: border-box;
+            }
+
+            .tournament-box {
+                width: 100%;
+                padding: 15px;
+                box-sizing: border-box;
+            }
+        }
+
+        #rankingHeading,
+        #tournamentTitle {
+            color: white;
+            text-shadow: 2px 2px 4px black;
+        }
+
+        .back-ranking-btn {
+            display: inline-block;
+            margin-bottom: 25px;
+            padding: 10px 18px;
+
+            background: rgba(255, 255, 255, 0.9);
+            color: #111827;
+
+            text-decoration: none;
+            font-weight: bold;
+
+            border-radius: 8px;
+
+            transition: 0.3s;
+        }
+
+        .back-ranking-btn:hover {
+            background: #111827;
+            color: white;
+            transform: translateY(-2px);
+        }
+    </style>
+
+</head>
+
+<body>
+    <script src="js/nav.js"></script>
+
+
+
+    <div class="ranking-container py-5">
+
+        <h2 id="rankingHeading" class="text-center mb-4">
+            🏆 Tournament Rankings
+        </h2>
+
+        <h3 id="tournamentTitle" class="text-center mb-2"></h3>
+
+        <div id="rankingContainer"></div>
+        <a href="rankingmenu.html" class="back-ranking-btn">
+            ← Back to Tournament Rankings
+        </a>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <!-- Player Modal -->
+    <div class="modal fade" id="playerModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title">Player Profile</h5>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body text-center">
+
+                    <img id="modalImage" class="modal-image mb-3">
+
+                    <h3 id="modalName"></h3>
+
+                    <p><strong>Player ID:</strong> <span id="modalID"></span></p>
+
+                    <p><strong>Game:</strong> <span id="modalGame"></span></p>
+
+                    <p>
+                        <strong>Country:</strong>
+                        <img id="modalFlag" width="30">
+                        <span id="modalCountry"></span>
+                    </p>
+
+                    <p><strong>Team:</strong> <span id="modalTeam"></span></p>
+
+                    <p><strong>Birthday:</strong> <span id="modalBirthday"></span></p>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Team Modal -->
+    <div class="modal fade" id="teamModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 id="teamName"></h4>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div id="teamMembers"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Bootstrap -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+    <script src="js/players.js"></script>
+    <script src="js/ranking.js"></script>
+
+</body>
+
+</html>

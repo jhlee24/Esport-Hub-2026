@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>News</title>
+
+    <link rel="stylesheet" href="css/nav.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- Google Font (same display font used on the Rankings page) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #111827, #1e293b, #312e81);
+            min-height: 100vh;
+            color: white;
+        }
+
+        .navbar {
+            background: linear-gradient(90deg, #2563eb, #4f46e5);
+            z-index: 1000;
+        }
+
+        .display-title {
+            font-family: "Black Ops One", cursive;
+            letter-spacing: 1px;
+            text-shadow: 3px 3px 0px #000;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #1e3a5f, #3730a3);
+            color: white;
+        }
+
+        .hero p {
+            color: #dbeafe;
+        }
+
+        /* Filter chips */
+        .filter-chip {
+            background: #1e293b;
+            border: 1px solid #475569;
+            color: #cbd5e1;
+            border-radius: 20px;
+            padding: 6px 16px;
+            font-size: .85rem;
+            margin: 4px;
+        }
+
+        .filter-chip.active {
+            background: #2563eb;
+            border-color: #2563eb;
+            color: white;
+        }
+
+        /* Article cards */
+        .article-card {
+            background: #1e293b;
+            border: 1px solid #475569;
+            color: white;
+            display: none;
+        }
+
+        .article-card.show {
+            display: flex;
+        }
+
+        .article-thumb {
+            height: 140px;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .article-card .tag {
+            font-size: .72rem;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: #60a5fa;
+        }
+
+        .article-body {
+            display: none;
+            font-size: .88rem;
+            color: #cbd5e1;
+            margin-top: 8px;
+        }
+
+        .read-link {
+            color: #93c5fd;
+            font-size: .8rem;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .empty-state {
+            text-align: center;
+            color: #94a3b8;
+            padding: 40px 0;
+        }
+
+        /* Sidebar */
+        .sidebar-box {
+            background: #1e293b;
+            border: 1px solid #475569;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .sidebar-box h4 {
+            font-size: .85rem;
+            letter-spacing: .08em;
+            color: #93c5fd;
+            margin-bottom: 14px;
+        }
+
+        .recent-item {
+            font-size: .85rem;
+            color: #cbd5e1;
+            border-bottom: 1px solid #334155;
+            padding: 6px 0;
+        }
+
+        .recent-item .tag {
+            display: block;
+            font-size: .7rem;
+            color: #60a5fa;
+        }
+
+        .empty-note {
+            font-size: .82rem;
+            color: #94a3b8;
+        }
+
+        #coach-tip {
+            min-height: 54px;
+            font-style: italic;
+            color: #e2e8f0;
+        }
+
+        #coach-tip.loading {
+            opacity: .6;
+        }
+
+        .btn-ghost {
+            background: #475569;
+            border: none;
+            color: white;
+        }
+
+        .btn-ghost:hover {
+            background: #64748b;
+            color: white;
+        }
+
+        .storage-note {
+            font-size: .78rem;
+            color: #94a3b8;
+            line-height: 1.55;
+        }
+
+        .storage-note code {
+            color: #93c5fd;
+            background: rgba(147, 197, 253, .1);
+            padding: 1px 5px;
+            border-radius: 3px;
+        }
+
+        footer {
+            color: #94a3b8;
+            font-size: .85rem;
+            padding: 30px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script src="js/nav.js"></script>
+
+    <!-- ================= HERO ================= -->
+    <section class="hero text-center p-5">
+        <h1 class="display-title" style="font-size:clamp(2rem,6vw,3.2rem);">PATCH NOTES &amp; HEADLINES</h1>
+        <p class="mx-auto" style="max-width:56ch;">
+            Match reports, roster moves and everything happening around the club — filtered by whatever you're here for.
+        </p>
+    </section>
+
+    <section class="container my-5">
+
+        <!-- ================= FILTER BAR ================= -->
+        <div class="text-center mb-4">
+            <button class="filter-chip active" data-filter="all">All (<span id="news-count">6</span>)</button>
+            <button class="filter-chip" data-filter="tournaments">Tournaments</button>
+            <button class="filter-chip" data-filter="roster">Roster</button>
+            <button class="filter-chip" data-filter="community">Community</button>
+            <button class="filter-chip" data-filter="guides">Guides</button>
+        </div>
+
+        <div class="row g-4">
+            <!-- ================= ARTICLE GRID ================= -->
+            <div class="col-lg-8">
+                <div class="row g-4" id="article-list">
+
+                    <div class="col-md-6">
+                        <div class="card article-card flex-column" data-category="tournaments"
+                            data-title="Alpha takes the regional qualifier opener">
+                            <div class="article-thumb" style="background:linear-gradient(135deg,#2a1a12,#0C0F14);">
+                            </div>
+                            <div class="card-body">
+                                <div class="tag">Tournaments · Aug 14</div>
+                                <h5 class="card-title">Alpha takes the regional qualifier opener</h5>
+                                <p class="card-text" style="font-size:.9rem;color:#cbd5e1;">A 13–9 map-one lead carried
+                                    Alpha to a straight-sets win over Northgate Wolves in Saturday's opener.</p>
+                                <div class="article-body">Alpha's defense held firm through the back half of map one,
+                                    converting three consecutive retakes to swing momentum before the half. Northgate
+                                    pushed back on map two but couldn't close the gap after losing the pistol round. The
+                                    win puts Alpha through to the regional semifinal.</div>
+                                <a class="read-link">READ MORE +</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card article-card flex-column" data-category="roster"
+                            data-title="Two substitute slots open on the Valorant roster">
+                            <div class="article-thumb" style="background:linear-gradient(135deg,#0f2a24,#0C0F14);">
+                            </div>
+                            <div class="card-body">
+                                <div class="tag">Roster · Aug 12</div>
+                                <h5 class="card-title">Two substitute slots open on the Valorant roster</h5>
+                                <p class="card-text" style="font-size:.9rem;color:#cbd5e1;">Open scrims run this week to
+                                    fill two bench spots ahead of the semifinal.</p>
+                                <div class="article-body">With one starter graduating mid-season, the coaching staff is
+                                    opening evaluation scrims to any club member currently Diamond or above. Sessions
+                                    run Tuesday and Thursday — just show up in the Discord voice channel ten minutes
+                                    early.</div>
+                                <a class="read-link">READ MORE +</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card article-card flex-column" data-category="community"
+                            data-title="Club hits 42 members after freshman orientation">
+                            <div class="article-thumb" style="background:linear-gradient(135deg,#2a2412,#0C0F14);">
+                            </div>
+                            <div class="card-body">
+                                <div class="tag">Community · Aug 9</div>
+                                <h5 class="card-title">Club hits 42 members after freshman orientation</h5>
+                                <p class="card-text" style="font-size:.9rem;color:#cbd5e1;">Our biggest intake yet,
+                                    spread across all six competitive rosters.</p>
+                                <div class="article-body">Orientation week brought in eighteen new members across all
+                                    six games, with PUBG seeing the biggest jump in casual sign-ups. New members get
+                                    access to the general Discord immediately; roster tryout invites go out after the
+                                    first open scrim night they attend.</div>
+                                <a class="read-link">READ MORE +</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card article-card flex-column" data-category="guides"
+                            data-title="Five habits our top-ranked players share">
+                            <div class="article-thumb" style="background:linear-gradient(135deg,#12202a,#0C0F14);">
+                            </div>
+                            <div class="card-body">
+                                <div class="tag">Guides · Aug 7</div>
+                                <h5 class="card-title">Five habits our top-ranked players share</h5>
+                                <p class="card-text" style="font-size:.9rem;color:#cbd5e1;">We asked the top names on
+                                    the leaderboard what actually moved their rank.</p>
+                                <div class="article-body">Consistent VOD review, a fixed warm-up routine, and treating
+                                    losses as data rather than tilt fuel came up in every conversation. Our current #1
+                                    credits a strict 20-minute aim-trainer routine before every scrim block — never
+                                    longer, never skipped.</div>
+                                <a class="read-link">READ MORE +</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card article-card flex-column" data-category="tournaments"
+                            data-title="Rocket League squad closes 3v3 series 4–2">
+                            <div class="article-thumb" style="background:linear-gradient(135deg,#1a1226,#0C0F14);">
+                            </div>
+                            <div class="card-body">
+                                <div class="tag">Tournaments · Aug 5</div>
+                                <h5 class="card-title">Rocket League squad closes 3v3 series 4–2</h5>
+                                <p class="card-text" style="font-size:.9rem;color:#cbd5e1;">Our Rocket League squad
+                                    overturned an early 0–2 deficit to take the series in six games.</p>
+                                <div class="article-body">Down two games at the half, the squad switched to a more
+                                    aggressive double-commit rotation that caught the opponent's defense off guard. An
+                                    overtime winner in game five sealed the momentum swing, and the squad closed it out
+                                    two games later without dropping another point.</div>
+                                <a class="read-link">READ MORE +</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card article-card flex-column" data-category="community"
+                            data-title="Weekly PUBG squad night moves to Common Room B">
+                            <div class="article-thumb" style="background:linear-gradient(135deg,#241a10,#0C0F14);">
+                            </div>
+                            <div class="card-body">
+                                <div class="tag">Community · Aug 2</div>
+                                <h5 class="card-title">Weekly PUBG squad night moves to Common Room B</h5>
+                                <p class="card-text" style="font-size:.9rem;color:#cbd5e1;">Bigger room, more setups —
+                                    the free-entry Wednesday squad night has a new home.</p>
+                                <div class="article-body">The move adds two extra PC stations, bringing the room to six
+                                    total setups. Entry stays free and open to non-members; squads are drawn on arrival
+                                    and matches typically run 18:00 to 21:00.</div>
+                                <a class="read-link">READ MORE +</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="empty-state d-none" id="news-empty">
+                        <p>No headlines in this category yet — check back after the next matchday.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= SIDEBAR ================= -->
+            <div class="col-lg-4">
+                <div class="sidebar-box">
+                    <h4>RECENTLY VIEWED</h4>
+                    <div id="recent-list"></div>
+                </div>
+
+                <!-- ============ RESTful API demo (jQuery.ajax -> public REST endpoint) ============ -->
+                <div class="sidebar-box">
+                    <h4>COACH'S TIP OF THE DAY</h4>
+                    <p id="coach-tip">Loading…</p>
+                    <button id="refresh-tip" class="btn btn-ghost btn-sm">New Tip</button>
+                </div>
+
+                <!-- ============ Social media plugin (live X / Twitter embed) ============ -->
+                <div class="sidebar-box">
+                    <h4>FOLLOW THE FEED</h4>
+
+                    <p>
+                        <a href="https://www.instagram.com/" target="_blank">
+                            Instagram
+                        </a>
+                    </p>
+
+                    <p>
+                        <a href="https://discord.com/" target="_blank">
+                            Discord
+                        </a>
+                    </p>
+                </div>
+
+                <div class="sidebar-box">
+                    <h4>HOW THIS PAGE REMEMBERS</h4>
+                    <p class="storage-note">
+                        Your category filter is saved in <code>localStorage</code> — it stays selected next time you
+                        open this page.<br><br>
+                        The list above is saved in <code>sessionStorage</code> — it clears itself once this browser tab
+                        is closed.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 Gaming Hub &middot; <a href="index.html" style="color:#93c5fd;">Home</a> &middot; <a
+            href="contact us.html" style="color:#93c5fd;">Contact</a>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/news.js"></script>
+ 
+</body>
+
+</html>

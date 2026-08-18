@@ -5,407 +5,355 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>E-Sports Club | Tournament Schedule</title>
-
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        rel="stylesheet">
-
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-        rel="stylesheet">
+    <title>Home</title>
 
     <link rel="stylesheet" href="css/nav.css">
-    <link rel="stylesheet" href="css/schedule.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- Google Font (same display font used on the Rankings page) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #111827, #1e293b, #312e81);
+            min-height: 100vh;
+            color: white;
+        }
+
+        .navbar {
+            background: linear-gradient(90deg, #2563eb, #4f46e5);
+            z-index: 1000;
+        }
+
+        .display-title {
+            font-family: "Black Ops One", cursive;
+            letter-spacing: 1px;
+            text-shadow: 3px 3px 0px #000;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #1e3a5f, #3730a3);
+            color: white;
+        }
+
+        .hero p {
+            color: #dbeafe;
+        }
+
+        .welcome-note {
+            display: inline-block;
+            font-size: .85rem;
+            color: #bfdbfe;
+            background: rgba(255, 255, 255, .08);
+            border: 1px solid rgba(255, 255, 255, .2);
+            border-radius: 20px;
+            padding: 4px 16px;
+            margin-bottom: 18px;
+        }
+
+        /* Stat blocks */
+        .stat-card {
+            background: #1e293b;
+            border: 1px solid #475569;
+            border-radius: 10px;
+            padding: 24px;
+            text-align: center;
+            height: 100%;
+        }
+
+        .stat-card .num {
+            font-family: "Black Ops One", cursive;
+            font-size: 2.2rem;
+            color: #60a5fa;
+        }
+
+        /* Shoutcaster / REST API card */
+        .quote-card {
+            background: #1e293b;
+            border: 1px solid #475569;
+            border-radius: 10px;
+            padding: 28px;
+        }
+
+        #hype-quote {
+            min-height: 60px;
+            font-style: italic;
+            color: #e2e8f0;
+        }
+
+        #hype-quote.loading {
+            opacity: .6;
+        }
+
+        .btn-ghost {
+            background: #475569;
+            border: none;
+            color: white;
+        }
+
+        .btn-ghost:hover {
+            background: #64748b;
+            color: white;
+        }
+
+        /* Game cards */
+        .game-card {
+            position: relative;
+            display: block;
+            height: 190px;
+            border-radius: 12px;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            border: 1px solid #475569;
+            text-decoration: none;
+            transition: .3s;
+        }
+
+        .game-card:hover {
+            transform: scale(1.04);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .game-card .shade {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, .85), rgba(0, 0, 0, .1));
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 12px;
+        }
+
+        .game-card .shade img {
+            max-height: 46px;
+            max-width: 80%;
+            object-fit: contain;
+        }
+
+        /* News teaser */
+        .news-teaser {
+            background: #1e293b;
+            border: 1px solid #475569;
+            color: white;
+            height: 100%;
+        }
+
+        .news-teaser .tag {
+            font-size: .72rem;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: #60a5fa;
+        }
+
+        .news-teaser a {
+            color: #93c5fd;
+            text-decoration: none;
+            font-size: .85rem;
+        }
+
+        /* Join / social */
+        .join-card {
+            background: linear-gradient(135deg, #1e3a5f, #312e81);
+            border-radius: 12px;
+            padding: 40px;
+        }
+
+        .share-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #1e293b;
+            border: 1px solid #475569;
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            text-decoration: none;
+        }
+
+        .share-btn:hover {
+            background: #475569;
+            color: white;
+        }
+
+        footer {
+            color: #94a3b8;
+            font-size: .85rem;
+            padding: 30px 0;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
 
-    <nav class="navbar">
-        <ul>
-            <li class="icon box"><a href="rocketleague.html">
-                    <img class="icon norm" src="icons/home.png" alt="Home">
-                    <img class="icon hover" src="icons/home_hover.png" alt="Home">
-                    <span>Home</span>
-                </a>
-            </li>
+    <script src="js/nav.js"></script>
 
-            <li class="icon box list"><a href="rocketleague.html">
-                    <img class="icon norm" src="icons/game.png" alt="Games">
-                    <img class="icon hover" src="icons/game_hover.png" alt="Games">
-                    <span>Games</span>
-                </a>
-                <ul class="listgames">
-                    <li><a href="rocketleague.html"><img class="icon norm" src="icons/car.png" alt="Rocket League"><img class="icon hover" src="icons/car_hover.png" alt="Rocket League"><span>Rocket League</span></a></li>
-                    <li><a href="valorant.html"><img class="icon norm" src="icons/valo.png" alt="Valorant"><img class="icon hover" src="icons/valo_hover.png" alt="Valorant"><span>Valorant</span></a></li>
-                    <li><a href="mlbb.html"><img class="icon norm" src="icons/moba.png" alt="Mobile Legends"><img class="icon hover" src="icons/moba_hover.png" alt="Mobile Legends"><span>Mobile Legends</span></a></li>
-                    <li><a href="apex.html"><img class="icon norm" src="icons/apex.png" alt="Apex Legends"><img class="icon hover" src="icons/apex_hover.png" alt="Apex Legends"><span>Apex Legends</span></a></li>
-                    <li><a href="pubg.html"><img class="icon norm" src="icons/pubg.png" alt="PUBG"><img class="icon hover" src="icons/pubg_hover.png" alt="PUBG"><span>PUBG</span></a></li>
-                    <li><a href="cs2.html"><img class="icon norm" src="icons/csgo.png" alt="Counter Strike 2"><img class="icon hover" src="icons/csgo_hover.png" alt="Counter Strike 2"><span>Counter Strike 2</span></a></li>
-                </ul>
-            </li>
-
-            <li class="icon box list"><a href="schedule.html">
-                    <img class="icon norm" src="icons/schedule.png" alt="Calendar">
-                    <img class="icon hover" src="icons/schedule_hover.png" alt="Calendar">
-                    <span>Schedules</span>
-                </a>
-                <ul class="listgames">
-                    <li><a href="rocketleague.html"><img class="icon norm" src="icons/car.png" alt="Rocket League"><img class="icon hover" src="icons/car_hover.png" alt="Rocket League"><span>Rocket League</span></a></li>
-                    <li><a href="valorant.html"><img class="icon norm" src="icons/valo.png" alt="Valorant"><img class="icon hover" src="icons/valo_hover.png" alt="Valorant"><span>Valorant</span></a></li>
-                    <li><a href="mlbb.html"><img class="icon norm" src="icons/moba.png" alt="Mobile Legends"><img class="icon hover" src="icons/moba_hover.png" alt="Mobile Legends"><span>Mobile Legends</span></a></li>
-                    <li><a href="apex.html"><img class="icon norm" src="icons/apex.png" alt="Apex Legends"><img class="icon hover" src="icons/apex_hover.png" alt="Apex Legends"><span>Apex Legends</span></a></li>
-                    <li><a href="pubg.html"><img class="icon norm" src="icons/pubg.png" alt="PUBG"><img class="icon hover" src="icons/pubg_hover.png" alt="PUBG"><span>PUBG</span></a></li>
-                    <li><a href="cs2.html"><img class="icon norm" src="icons/csgo.png" alt="Counter Strike 2"><img class="icon hover" src="icons/csgo_hover.png" alt="Counter Strike 2"><span>Counter Strike 2</span></a></li>
-                </ul>
-            </li>
-
-            <li class="icon box list"><a href="rankings.html">
-                    <img class="icon norm" src="icons/trophy.png" alt="Rankings">
-                    <img class="icon hover" src="icons/trophy_hover.png" alt="Rankings">
-                    <span>Rankings</span>
-                </a>
-                <ul class="listgames">
-                    <li><a href="rankings.html"><img class="icon norm" src="icons/car.png" alt="Rocket League"><img class="icon hover" src="icons/car_hover.png" alt="Rocket League"><span>Rocket League</span></a></li>
-                    <li><a href="rankings.html"><img class="icon norm" src="icons/valo.png" alt="Valorant"><img class="icon hover" src="icons/valo_hover.png" alt="Valorant"><span>Valorant</span></a></li>
-                    <li><a href="rankings.html"><img class="icon norm" src="icons/moba.png" alt="Mobile Legends"><img class="icon hover" src="icons/moba_hover.png" alt="Mobile Legends"><span>Mobile Legends</span></a></li>
-                    <li><a href="rankings.html"><img class="icon norm" src="icons/apex.png" alt="Apex Legends"><img class="icon hover" src="icons/apex_hover.png" alt="Apex Legends"><span>Apex Legends</span></a></li>
-                    <li><a href="rankings.html"><img class="icon norm" src="icons/pubg.png" alt="PUBG"><img class="icon hover" src="icons/pubg_hover.png" alt="PUBG"><span>PUBG</span></a></li>
-                    <li><a href="rankings.html"><img class="icon norm" src="icons/csgo.png" alt="Counter Strike 2"><img class="icon hover" src="icons/csgo_hover.png" alt="Counter Strike 2"><span>Counter Strike 2</span></a></li>
-                </ul>
-            </li>
-
-            <li class="icon box op"><a href="profile.html"><img class="icon norm" src="icons/guy.png" alt="Profile"><img class="icon hover" src="icons/guy_hover.png" alt="Profile"><span>Profile</span></a></li>
-            <li class="icon box op"><a href="news.html"><img class="icon norm" src="icons/news.png" alt="News"><img class="icon hover" src="icons/news_hover.png" alt="News"><span>News</span></a></li>
-            <li class="icon box op"><a href="contact.html"><img class="icon norm" src="icons/contact.png" alt="Contact us"><img class="icon hover" src="icons/contact_hover.png" alt="Contact us"><span>Contact Us</span></a></li>
-
-            <li class="icon box more list"><a href="#">
-                    <span class="more-dots" aria-hidden="true">•••</span>
-                    <span>More</span>
-                </a>
-                <ul class="listgames">
-                    <li><a href="profile.html"><img class="icon norm" src="icons/guy_hover.png" alt="Profile"><img class="icon hover" src="icons/guy.png" alt="Profile"><span>Profile</span></a></li>
-                    <li><a href="news.html"><img class="icon norm" src="icons/news_hover.png" alt="News"><img class="icon hover" src="icons/news.png" alt="News"><span>News</span></a></li>
-                    <li><a href="contact.html"><img class="icon norm" src="icons/contact_hover.png" alt="Contact us"><img class="icon hover" src="icons/contact.png" alt="Contact us"><span>Contact Us</span></a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
-
-    <section class="hero">
-        <div class="container text-center">
-            <h1>Upcoming Tournaments</h1>
-
-            <p>
-                Compete, connect, and become the next E-Sports champion.
-            </p>
-
-            <a href="#events" class="btn btn-primary btn-lg">
-                View Events
-            </a>
+    <!-- ================= HERO ================= -->
+    <section class="hero text-center p-5">
+        <p class="welcome-note" id="welcome-note">Welcome!</p>
+        <h1 class="display-title" style="font-size:clamp(2rem,6vw,3.2rem);">Gaming Hub</h1>
+        <p class="mx-auto" style="max-width:52ch;">
+            The campus esports club for players who take practice seriously and everything else lightly —
+            six competitive rosters, weekly scrims, and a community that shows up for every matchday.
+        </p>
+        <div class="d-flex justify-content-center gap-3 flex-wrap mt-4">
+            <a href="Games.html" class="btn btn-primary btn-lg">Explore Games</a>
+            <a href="playerprofile.html" class="btn btn-ghost btn-lg">Meet the Players</a>
         </div>
     </section>
 
-    <section class="container mt-5">
-        <div class="row g-3">
-            <div class="col-lg-8">
-                <input
-                    type="text"
-                    class="form-control"
-                    id="searchInput"
-                    placeholder="Search tournament...">
-            </div>
-
-            <div class="col-lg-4">
-                <select class="form-select" id="gameFilter">
-                    <option value="all">All Games</option>
-                    <option>Valorant</option>
-                    <option>MLBB</option>
-                    <option>PUBG</option>
-                    <option>Rocket League</option>
-                    <option>Apex Legends</option>
-                    <option>Counter Strike 2</option>
-                </select>
-            </div>
-        </div>
-    </section>
-
-    <section class="container mt-5">
-        <div class="featured">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <img
-                        src="images/valorant.jpg"
-                        class="img-fluid rounded"
-                        alt="Valorant">
-                </div>
-
-                <div class="col-lg-6">
-                    <h2>Valorant Summer Cup</h2>
-
-                    <p>
-                        <i class="bi bi-calendar-event"></i>
-                        25 August 2026
-                    </p>
-
-                    <p>
-                        <i class="bi bi-clock"></i>
-                        2:00 PM
-                    </p>
-
-                    <p>
-                        <i class="bi bi-geo-alt"></i>
-                        UTAR Kampar
-                    </p>
-
-                    <p>
-                        <strong>Prize Pool:</strong>
-                        RM3000
-                    </p>
-
-                    <div id="countdown">
-                        Starts In:
-                        <span id="timer"></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="container mt-5" id="events">
-        <h2 class="text-center mb-4">Upcoming Events</h2>
-
+    <!-- ================= STATS ================= -->
+    <section class="container my-5">
         <div class="row g-4">
+            <div class="col-md-4">
+                <div class="stat-card">
+                    <div class="num">42</div>
+                    <div>Active Members</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="stat-card">
+                    <div class="num">6</div>
+                    <div>Competitive Rosters</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="stat-card">
+                    <div class="num">11</div>
+                    <div>Trophies Since 2023</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <div class="col-lg-4">
-                <div class="event-card">
-                    <img
-                        src="images/valorant.jpg"
-                        class="img-fluid"
-                        alt="Valorant">
+    <!-- ================= SHOUTCASTER LINE (RESTful API demo) ================= -->
+    <section class="container my-5">
+        <div class="row align-items-center g-4">
+            <div class="col-lg-6">
+                <h2 class="display-title" style="font-size:1.6rem;">SHOUTCASTER LINE OF THE DAY</h2>
+            </div>
+            <div class="col-lg-6">
+                <div class="quote-card">
+                    <p id="hype-quote" style="font-family:monospace;">Loading…</p>
+                    <button id="refresh-quote" class="btn btn-ghost mt-2">New Line</button>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                    <div class="p-3">
-                        <h4>Valorant Summer Cup</h4>
-                        <p>25 August 2026</p>
-                        <p>Prize Pool: RM3000</p>
+    <!-- ================= FEATURED GAMES ================= -->
+    <section class="container my-5">
+        <h2 class="display-title text-center mb-4" style="font-size:1.8rem;">FEATURED GAMES</h2>
+        <div class="row g-4">
+            <div class="col-6 col-md-4">
+                <a href="Game1.html" class="game-card" style="background-image:url('pics/rocketleague.jpg');">
+                    <div class="shade"></div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4">
+                <a href="Game2.html" class="game-card" style="background-image:url('pics/valo.png');">
+                    <div class="shade"></div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4">
+                <a href="Game3.html" class="game-card" style="background-image:url('pics/mobilelegends.jpg');">
+                    <div class="shade"></div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4">
+                <a href="Game4.html" class="game-card" style="background-image:url('pics/apex_back.png');">
+                    <div class="shade"></div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4">
+                <a href="Game5.html" class="game-card" style="background-image:url('pics/PUBG.jpg');">
+                    <div class="shade"></div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4">
+                <a href="Game6.html" class="game-card" style="background-image:url('pics/cs2.jpg');">
+                    <div class="shade"></div>
+                </a>
+            </div>
+        </div>
+    </section>
 
-                        <button
-                            type="button"
-                            class="btn btn-warning favourite">
-                            ⭐ Favourite
-                        </button>
-
-                        <button
-                            type="button"
-                            class="btn btn-primary view"
-                            data-page="valorant.html">
-                            View
-                        </button>
+    <!-- ================= LATEST HEADLINES ================= -->
+    <section class="container my-5">
+        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+            <h2 class="display-title" style="font-size:1.8rem;">LATEST HEADLINES</h2>
+            <a href="news.html" class="btn btn-ghost btn-sm">View All News</a>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card news-teaser">
+                    <div class="card-body">
+                        <div class="tag">Tournaments</div>
+                        <h5 class="card-title">Alpha takes the regional qualifier opener</h5>
+                        <p class="card-text" style="color:#cbd5e1;font-size:.9rem;">A 13–9 map-one lead carried Alpha to
+                            a straight-sets win over Northgate Wolves.</p>
+                        <a href="news.html">Read more &rarr;</a>
                     </div>
                 </div>
             </div>
-
-            <div class="col-lg-4">
-                <div class="event-card">
-                    <img
-                        src="images/mlbb.jpg"
-                        class="img-fluid"
-                        alt="Mobile Legends">
-
-                    <div class="p-3">
-                        <h4>MLBB Campus League</h4>
-                        <p>30 August 2026</p>
-                        <p>Prize Pool: RM2500</p>
-
-                        <button
-                            type="button"
-                            class="btn btn-warning favourite">
-                            ⭐ Favourite
-                        </button>
-
-                        <button
-                            type="button"
-                            class="btn btn-primary view"
-                            data-page="mlbb.html">
-                            View
-                        </button>
+            <div class="col-md-4">
+                <div class="card news-teaser">
+                    <div class="card-body">
+                        <div class="tag">Roster</div>
+                        <h5 class="card-title">Two substitute slots open on the Valorant roster</h5>
+                        <p class="card-text" style="color:#cbd5e1;font-size:.9rem;">Open scrims run this week to fill
+                            two bench spots ahead of the semifinal.</p>
+                        <a href="news.html">Read more &rarr;</a>
                     </div>
                 </div>
             </div>
-
-            <div class="col-lg-4">
-                <div class="event-card">
-                    <img
-                        src="images/pubg.jpg"
-                        class="img-fluid"
-                        alt="PUBG">
-
-                    <div class="p-3">
-                        <h4>PUBG Battle Arena</h4>
-                        <p>5 September 2026</p>
-                        <p>Prize Pool: RM5000</p>
-
-                        <button
-                            type="button"
-                            class="btn btn-warning favourite">
-                            ⭐ Favourite
-                        </button>
-
-                        <button
-                            type="button"
-                            class="btn btn-primary view"
-                            data-page="pubg.html">
-                            View
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4">
-                <div class="event-card">
-                    <img
-                        src="images/rocketleague.jpg"
-                        class="img-fluid"
-                        alt="Rocket League">
-
-                    <div class="p-3">
-                        <h4>Rocket League Championship</h4>
-                        <p>10 September 2026</p>
-                        <p>Prize Pool: RM3,500</p>
-
-                        <button
-                            type="button"
-                            class="btn btn-warning favourite">
-                            ⭐ Favourite
-                        </button>
-
-                        <button
-                            type="button"
-                            class="btn btn-primary view"
-                            data-page="rocketleague.html">
-                            View
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4">
-                <div class="event-card">
-                    <img
-                        src="images/apex.png"
-                        class="img-fluid"
-                        alt="Apex Legends">
-
-                    <div class="p-3">
-                        <h4>Apex Legends Showdown</h4>
-                        <p>18 September 2026</p>
-                        <p>Prize Pool: RM4,500</p>
-
-                        <button
-                            type="button"
-                            class="btn btn-warning favourite">
-                            ⭐ Favourite
-                        </button>
-
-                        <button
-                            type="button"
-                            class="btn btn-primary view"
-                            data-page="apex.html">
-                            View
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4">
-                <div class="event-card">
-                    <img
-                        src="images/cs2.jpg"
-                        class="img-fluid"
-                        alt="Counter Strike 2">
-
-                    <div class="p-3">
-                        <h4>Counter Strike 2 Championship</h4>
-                        <p>25 September 2026</p>
-                        <p>Prize Pool: RM4,000</p>
-
-                        <button
-                            type="button"
-                            class="btn btn-warning favourite">
-                            ⭐ Favourite
-                        </button>
-
-                        <button
-                            type="button"
-                            class="btn btn-primary view"
-                            data-page="cs2.html">
-                            View
-                        </button>
+            <div class="col-md-4">
+                <div class="card news-teaser">
+                    <div class="card-body">
+                        <div class="tag">Community</div>
+                        <h5 class="card-title">Club hits 42 members after freshman orientation</h5>
+                        <p class="card-text" style="color:#cbd5e1;font-size:.9rem;">Our biggest intake yet, spread
+                            across all six competitive rosters.</p>
+                        <a href="news.html">Read more &rarr;</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="container mt-5">
-        <div class="favorite-box">
-            <h3>Your Favourite Tournament</h3>
-
-            <p id="favoriteTournament">
-                No favourite tournament selected.
-            </p>
+    <!-- ================= JOIN / SOCIAL ================= -->
+    <section class="container my-5">
+        <div class="join-card text-center">
+            <h2 class="display-title" style="font-size:1.8rem;">BRING YOUR OWN HEADSET.<br>WE'LL BRING THE BRACKET.</h2>
+            <p class="mx-auto" style="max-width:50ch;color:#dbeafe;">Tryouts run every semester and casual scrim nights
+                happen weekly — no roster spot required to show up.</p>
+            <a href="contact us.html" class="btn btn-primary btn-lg mb-4">Get In Touch</a>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <a href="#" class="share-btn" data-network="discord" title="Join our Discord"><img
+                        src="pics/discord.png" alt="Discord" style="width:22px;height:22px;object-fit:contain;"></a>
+                <a href="#" class="share-btn" data-network="instagram" title="Follow on Instagram"><img
+                        src="pics/instagram.jpg" alt="Instagram"
+                        style="width:22px;height:22px;object-fit:cover;border-radius:50%;"></a>
+            </div>
         </div>
     </section>
 
-    <footer class="mt-5">
-        <div class="container text-center">
-            <p>© 2026 Gaming Hub. All Rights Reserved.</p>
-        </div>
+    <footer>
+        &copy; 2026 Gaming Hub &middot; <a href="news.html" style="color:#93c5fd;">News</a> &middot; <a
+            href="contact us.html" style="color:#93c5fd;">Contact</a>
     </footer>
 
-    <div
-        class="cookie-banner"
-        id="cookieBanner"
-        role="dialog"
-        aria-live="polite"
-        aria-label="Cookie notice">
-
-        <div class="cookie-content">
-            <div>
-                <h3>Cookie Notice</h3>
-
-                <p>
-                    This website uses cookies to improve your browsing
-                    experience.
-                </p>
-            </div>
-
-            <div class="cookie-buttons">
-                <button
-                    type="button"
-                    class="cookie-accept"
-                    id="acceptCookies">
-                    Accept
-                </button>
-
-                <button
-                    type="button"
-                    class="cookie-decline"
-                    id="declineCookies">
-                    Decline
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <script src="js/schedule.js"></script>
-
-    <script src="js/cookie.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
-    </script>
-
-    <script src="js/anchor.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/home.js"></script>
 </body>
 
 </html>

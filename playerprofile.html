@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Player Profile</title>
+
+    <link rel="stylesheet" href="css/nav.css">
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #111827, #1e293b, #312e81);
+            min-height: 100vh;
+            color: white;
+        }
+
+        .navbar {
+            background: linear-gradient(90deg, #5b7fa3, #7896b5);
+            z-index: 1000;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #1e3a5f, #3730a3);
+            color: white;
+        }
+
+        .hero h1 {
+            font-weight: bold;
+        }
+
+        .hero p {
+            color: #dbeafe;
+        }
+
+        /* Search bar */
+        .input-group {
+            background: #1e293b;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .input-group input {
+            background: #1e293b;
+            color: white;
+            border: 1px solid #475569;
+        }
+
+        .input-group input::placeholder {
+            color: #94a3b8;
+        }
+
+        .input-group input:focus {
+            background: #1e293b;
+            color: white;
+            border-color: #60a5fa;
+            box-shadow: none;
+        }
+
+        .input-group .btn {
+            background: #475569;
+            border: none;
+        }
+
+        /* Player card */
+        .player-card {
+            cursor: pointer;
+            transition: 0.3s;
+            height: 100%;
+            background: #1e293b;
+            color: white;
+            border: 1px solid #475569;
+        }
+
+        .player-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .player-card img {
+            height: 220px;
+            object-fit: cover;
+        }
+
+        /* Player card text */
+        .player-card h3,
+        .player-card h4,
+        .player-card p {
+            color: white;
+        }
+
+        /* Modal */
+        .modal-content {
+            background: #f8fafc;
+            color: #111827;
+        }
+
+        .modal-header {
+            background: #e2e8f0;
+        }
+
+        .modal-image {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .search-container {
+            position: sticky;
+            top: 60px;
+            z-index: 900;
+            padding: 10px 0;
+            background: transparent;
+        }
+
+        #topButton {
+            display: none;
+        }
+    </style>
+
+</head>
+
+
+
+<body>
+
+    <script src="js/nav.js"></script>
+    <!-- Hero Section -->
+    <section class="hero text-center p-5">
+        <h1>Meet Our Players</h1>
+
+        <p>
+            Discover the talented players representing our E-Sports Club.
+        </p>
+    </section>
+
+
+    <div class="container my-5">
+
+
+
+        <!-- Search Bar -->
+
+
+        <div class="search-container">
+            <div class="input-group mb-4">
+                <input type="text" id="search" class="form-control"
+                    placeholder="Search by Player Name, Player ID or Game..." onkeyup="searchPlayer()">
+
+                <button class="btn btn-secondary" onclick="searchPlayer()">
+                    🔍
+                </button>
+
+                <button id="topButton" class="btn btn-secondary" onclick="goToTop()">
+                    ↑ Top
+                </button>
+            </div>
+        </div>
+
+
+
+
+
+        <!-- Player Cards -->
+
+
+        <div class="row g-4" id="playerList">
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+    <!-- Player Modal -->
+
+
+    <div class="modal fade" id="playerModal">
+
+
+        <div class="modal-dialog modal-dialog-centered">
+
+
+            <div class="modal-content">
+
+
+
+                <div class="modal-header">
+
+
+                    <h5 class="modal-title">
+
+                        Player Profile
+
+                    </h5>
+
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal">
+
+                    </button>
+
+
+                </div>
+
+
+
+
+
+
+                <div class="modal-body text-center">
+
+
+
+                    <img id="modalImage" class="modal-image mb-3">
+
+
+
+                    <h3 id="modalName">
+
+                    </h3>
+
+
+
+                    <p>
+
+                        <strong>Player ID:</strong>
+
+                        <span id="modalID"></span>
+
+                    </p>
+
+
+
+
+                    <p>
+
+                        <strong>Game Played:</strong>
+
+                        <span id="modalGame"></span>
+
+                    </p>
+
+
+
+
+                    <p>
+                        <strong>Country:</strong>
+
+                        <img id="modalFlag" width="30">
+
+                        <span id="modalCountry"></span>
+                    </p>
+
+                    <p>
+                        <strong>Team:</strong>
+                        <span id="modalTeam"></span>
+                    </p>
+
+                    <p>
+                        <strong>Birthday:</strong>
+                        <span id="modalBirthday"></span>
+                    </p>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+    <script src="js/players.js"></script>
+    <script src="js/playerprofile.js"></script>
+
+
+</body>
+
+</html>
